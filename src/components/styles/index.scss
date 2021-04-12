@@ -1,0 +1,48 @@
+$bodycolor: #f9f6ef;
+$blue: #3bbfce;
+
+// html,
+// body {
+//   height: 100%;
+// }
+
+// body {
+//   overflow: hidden;
+//   background: $bodycolor;
+// }
+
+h2 {
+    font-size: 20px;
+}
+
+.place {
+  margin: auto;
+}
+
+.board {
+  width: 40%;
+}
+
+.inline { 
+  display: inline-block;
+  border: 1px solid rgb(13, 185, 148); 
+  margin:30px;
+  }
+
+  .logo_img {
+    float: left
+  }
+
+  .board_img {
+    width: 200px;
+    height: 200px;
+  }
+  .board_descr {
+    font-size: 16px;
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+  }

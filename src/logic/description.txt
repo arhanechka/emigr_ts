@@ -1,0 +1,14 @@
+Client sends countries he's got during the first stage of selection
+
+
+
+/////
+
+We have set of countries; set of characteristics for every country and weights for every characteristic
+
+1 step`;
+we set zero matrix with 1 on diagonales for every characteristic
+2 step: 
+we count the createria ration: the size of matrix will be the countries set size; 
+the number of matrix on this step will be the number of characteristics;
+the filling will be the ratio between criterias (better=1; worse = 0; equal = 1 on both sides)
