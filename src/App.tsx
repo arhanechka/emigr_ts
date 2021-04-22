@@ -6,6 +6,8 @@ import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 import Landing from './components/Landing'
 import Conditions from './components/Conditions'
 import DataCenter from './components/DataCenter'
+import SocialOrClimate from './components/SocialOrClimate'
+import Slider from './components/userGameParameters/Typography'
 import {preconditions, conditions} from './data/data'
 
 export interface IConditionType {
@@ -38,8 +40,9 @@ function App() {
        <Route exact path = '/' component={Landing}/>
        <Route exact path="/prec" component={() => <Conditions {...preconditions} />} /> 
        <Route exact path="/cond" component={() => <Conditions {...conditions} />} /> 
-       <Route exact path="/datacenter" component={DataCenter} />            
-       </Switch>
+       <Route exact path="/datacenter" component={DataCenter} /> 
+       <Route exact path="/scenario" component={SocialOrClimate} />                       
+       <Route exact path="/slider" component={Slider} />         </Switch>
        </div>
        </Router>
 

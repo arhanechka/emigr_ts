@@ -19,14 +19,19 @@ h2 {
   margin: auto;
 }
 
+.cardsize {
+  width: 300px;
+  height: 400px;
+}
+
 .board {
-  width: 40%;
+  width: 28%;
 }
 
 .inline { 
   display: inline-block;
   border: 1px solid rgb(13, 185, 148); 
-  margin:30px;
+  margin:20px;
   }
 
   .logo_img {
@@ -34,8 +39,8 @@ h2 {
   }
 
   .board_img {
-    width: 200px;
-    height: 200px;
+    max-width: 100%;
+    width: auto;
   }
   .board_descr {
     font-size: 16px;
@@ -45,4 +50,17 @@ h2 {
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
+  }
+
+  .slider-block {
+    margin-top: 30px;
+  }
+
+  .card .card-action {
+    padding: 5px;
+  }
+
+  .row{
+    display: flex;
+    justify-content: center;
   }

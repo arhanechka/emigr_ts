@@ -19,3 +19,4 @@ module.exports.weights = {
     average_price: 0.35,
     climate: 0.1
 }
+

@@ -3,6 +3,7 @@ import { IConditionsContext } from "../data/data";
 import { Link } from "react-router-dom";
 import Select from "./Select";
 import { defaultConditions } from "../App";
+import PropTypes from "prop-types";
 
 interface IConditionType {
   name: string;
@@ -47,5 +48,6 @@ const Conditions = (data: IConditionsContext): JSX.Element => {
     </div>
   );
 };
-// export default conditionHOC(Conditions, conditions);
+
+
 export default Conditions;

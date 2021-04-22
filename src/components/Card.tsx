@@ -1,21 +1,23 @@
-import React , { useContext } from "react";
+import React , { useContext, useState } from "react";
 import "./styles/index.scss";
 import { ICardInfo, IHandleClick } from "./Board";
-import { IClickOptions } from "@testing-library/user-event";
 import {userContext} from './Landing'
 
 const Card = (props: IHandleClick & ICardInfo): React.ReactNode | any => {
   const user= useContext(userContext)
+  const[isChecked, setIsChecked] = useState(false)
 
   const handleClick = (choice: string): void => {
     user.scenario = choice;
-    props.handleClick()
+    props.handleClick(choice)
+    if (choice.includes("game"))
+    setIsChecked(true)
 }
 
   return (
-    <div className="card board inline">
+    <div className="col card board inline">
       <div className="card-image card-action waves-effect waves-block waves-light">
-        <img className="activator board_img" src={props.img} />
+        <img className=" activator board_img" src={props.img} />
       </div>
       <div className="card-content">
         <span className="card-title activator grey-text text-darken-4">
@@ -28,20 +30,12 @@ const Card = (props: IHandleClick & ICardInfo): React.ReactNode | any => {
           <label>
             <input
               type="checkbox"
-              defaultChecked={false}
+              defaultChecked={isChecked}
               onClick={()=>handleClick(props.title)}
+              checked={isChecked}
             />{" "}
             <span>Choose</span>
           </label>
-        </p>
-      </div>
-      <div className="card-reveal">
-        <span className="card-title grey-text text-darken-4">
-          Card Title<i className="material-icons right">close</i>
-        </span>
-        <p>
-          Here is some more information about this product that is only revealed
-          once clicked on.
         </p>
       </div>
     </div>

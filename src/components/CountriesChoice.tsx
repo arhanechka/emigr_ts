@@ -1,4 +1,5 @@
-import React from "react";
+import React , { useContext } from "react";
+import {userContext} from './Landing'
 
 interface iProps {
   display: string;
@@ -20,6 +21,13 @@ const countries: Icountries[] = [
 ];
 
 const CountriesChoice = (props: iProps) => {
+  const user= useContext(userContext)
+  const handleClick = (parameter: string): void => {
+    user.countries?.push(parameter)
+    console.log(user)
+    props.handleChoice(parameter)
+  }
+
   return (
     <div className="collection" style={{ display: props.display }}>
       {countries.map((el, index) => (
@@ -29,7 +37,7 @@ const CountriesChoice = (props: iProps) => {
               <label>
                 <input type="checkbox" 
                 defaultChecked={false}
-                onClick={()=>props.handleChoice(el.name)}
+                onClick={() => handleClick(el.name)}
                 />
                 <span></span>
               </label>
