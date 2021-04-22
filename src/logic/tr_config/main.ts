@@ -18,7 +18,8 @@ export interface Icharacteristics extends IObjectKeys {
   studying: Array<number>;
 }
 
-export const character: Icharacteristics = {
+export const getInitalObject = (): Icharacteristics => {
+  return {
   continent: [],
   climate: [],
   price: [],
@@ -30,22 +31,22 @@ export const character: Icharacteristics = {
   safety: [],
   civilization: [],
   studying: [],
+  }
 };
-
-export const o = Object.freeze(character);
 
 export const data = (): Icharacteristics => {
   console.log("DATA ")
+  const characteristics = getInitalObject();
   countries.map((country) => {
     for (let key in country) {
-      if (character[key as keyof IObjectKeys]) {
+      if (characteristics[key as keyof IObjectKeys]) {
         let temp = country[key as keyof TCountry];
         if (typeof temp !== "string") {
-          character[key as keyof IObjectKeys].push(temp);
+          characteristics[key as keyof IObjectKeys].push(temp);
         }
       }
     }
   });
-  console.log(character)
-  return character;
+  console.log(characteristics)
+  return characteristics;
 };

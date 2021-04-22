@@ -2,7 +2,7 @@ import { createContext, useEffect, useMemo, useRef, useState } from "react";
 import ".././styles/index.scss";
 import { Link } from "react-router-dom";
 import MySlider from "./Slider";
-import { data, Icharacteristics, o } from "../../logic/tr_config/main";
+import { data } from "../../logic/tr_config/main";
 import { parameters, Iparameters } from "./ParametersData";
 
 export const userParametersContext = createContext<Iparameters[]>(parameters);
