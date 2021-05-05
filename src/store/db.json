@@ -1,0 +1,229 @@
+{
+  "countries": [
+    {
+      "id": 1,
+      "name": "Norway",
+      "continent": 1,
+      "climate": 6,
+      "price": 4000,
+      "salary": 4500,
+      "passport": 3,
+      "tax": 4,
+      "crime": 3,
+      "corruption": 2,
+      "safety": 2,
+      "civilization": 6,
+      "studying": 5
+    },
+    {
+      "id": 2,
+      "name": "Kosta Rika",
+      "continent": 6,
+      "climate": 1,
+      "price": 2000,
+      "salary": 1000,
+      "passport": 6,
+      "tax": 2,
+      "crime": 3,
+      "corruption": 2,
+      "safety": 2,
+      "civilization": 3,
+      "studying": 2
+    },
+    {
+      "id": 3,
+      "name": "Panama",
+      "continent": 6,
+      "climate": 1,
+      "price": 2100,
+      "salary": 700,
+      "passport": 16,
+      "tax": 2,
+      "crime": 5,
+      "corruption": 3,
+      "safety": 4,
+      "civilization": 3,
+      "studying": 2
+    },
+    {
+      "id": 4,
+      "name": "Dominicana",
+      "continent": 6,
+      "climate": 1,
+      "price": 700,
+      "salary": 200,
+      "passport": 26,
+      "tax": 2,
+      "crime": 9,
+      "corruption": 6,
+      "safety": 7,
+      "civilization": 1,
+      "studying": 1
+    },
+    {
+      "id": 5,
+      "name": "Sweden",
+      "continent": 1,
+      "climate": 5,
+      "price": 4700,
+      "salary": 5000,
+      "passport": 3,
+      "tax": 5,
+      "crime": 3,
+      "corruption": 3,
+      "safety": 2,
+      "civilization": 6,
+      "studying": 6
+    },
+    {
+      "id": 6,
+      "name": "France",
+      "continent": 4,
+      "climate": 3,
+      "price": 3000,
+      "salary": 2500,
+      "passport": 4,
+      "tax": 4,
+      "crime": 4,
+      "corruption": 4,
+      "safety": 3,
+      "civilization": 5,
+      "studying": 5
+    },
+    {
+      "id": 7,
+      "name": "Portugal",
+      "continent": 1,
+      "climate": 3,
+      "price": 2000,
+      "salary": 1500,
+      "passport": 5,
+      "tax": 3,
+      "crime": 4,
+      "corruption": 4,
+      "safety": 3,
+      "civilization": 5,
+      "studying": 5
+    },
+    {
+      "id": 8,
+      "name": "Sri Lanka",
+      "continent": 6,
+      "climate": 6,
+      "price": 1700,
+      "salary": 500,
+      "passport": 15,
+      "tax": 3,
+      "crime": 4,
+      "corruption": 4,
+      "safety": 3,
+      "civilization": 2,
+      "studying": 1
+    },
+    {
+      "id": 9,
+      "name": "China",
+      "continent": 2,
+      "climate": 4,
+      "price": 2700,
+      "salary": 2500,
+      "passport": 15,
+      "tax": 3,
+      "crime": 4,
+      "corruption": 4,
+      "safety": 3,
+      "civilization": 4,
+      "studying": 3
+    },
+    {
+      "id": 10,
+      "name": "Japan",
+      "continent": 4,
+      "climate": 3,
+      "price": 5700,
+      "salary": 5500,
+      "passport": 4,
+      "tax": 3,
+      "crime": 3,
+      "corruption": 2,
+      "safety": 2,
+      "civilization": 6,
+      "studying": 6
+    },
+    {
+      "id": 11,
+      "name": "Ukraine",
+      "continent": 5,
+      "climate": 4,
+      "price": 700,
+      "salary": 500,
+      "passport": 14,
+      "tax": 1,
+      "crime": 6,
+      "corruption": 7,
+      "safety": 5,
+      "civilization": 2,
+      "studying": 2
+    }
+  ],
+  "continents": [
+    { "id": 1, "name": "Europe" },
+    { "id": 2, "name": "Asia" },
+    { "id": 3, "name": "Australia" },
+    { "id": 4, "name": "Africa" },
+    { "id": 5, "name": "North America" },
+    { "id": 6, "name": "South America" }
+  ],
+  "parameters": [
+    {
+      "name": "Climate",
+      "id": 1,
+      "country_alias": "climate"
+    },
+    {
+      "name": "Average life price",
+      "id": 2,
+      "country_alias": "price"
+    },
+    {
+      "name": "Average salary/average life price",
+      "id": 3,
+      "country_alias": "salary"
+    },
+    {
+      "name": "Passport index",
+      "id": 4,
+      "country_alias": "passport"
+    },
+    {
+      "name": "Tax level",
+      "id": 5,
+      "country_alias": "tax"
+    },
+    {
+      "name": "Crime level",
+      "id": 6,
+      "country_alias": "crime"
+    },
+    {
+      "name": "Corruption level",
+      "id": 7,
+      "country_alias": "corruption"
+    },
+    {
+      "name": "Safety",
+      "id": 8,
+      "country_alias": "safety"
+    },
+    {
+      "name": "Civilization and comfort level",
+      "id": 9,
+      "country_alias": "climate"
+    },
+    {
+      "name": "Studying raiting",
+      "id": 10,
+      "country_alias": "climate"
+    }
+  ]
+}

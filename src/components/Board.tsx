@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "./Card";
 import mountains from "../assets/img/mountains.jpg";
 import bridge from "../assets/img/bridge.jpg";
@@ -37,6 +37,7 @@ export interface IHandleClick {
 }
 
 const Board = (props: IHandleClick) => {
+
   return (
     <div className='row'>
         {cardInfoArray.map(el => (<Card title={el.title} img={el.img} description={el.description} handleClick={props.handleClick}/>))}

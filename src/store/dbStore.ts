@@ -1,8 +1,41 @@
-enum Climate {
+import { observable } from "mobx"
+
+export interface IcontinentsKeys {
+    [key: string]: number | undefined;
+  }
+
+export interface Icontinents extends IcontinentsKeys {
+    Europe?: number,
+    Asia?: number, 
+    Australia?: number, 
+    Africa?: number, 
+    NorthAmerica?: number, 
+    SouthAmerica?: number
+}
+
+export const continentsDb:  Icontinents= {
+    Europe: 1,
+    Asia: 2, 
+    Australia: 3, 
+    Africa: 4, 
+    NorthAmerica: 5, 
+    SouthAmerica: 6
+}
+
+export interface IClimates {
+    Coldest: number,
+    Cold: number, 
+    Medium: number, 
+    Africa: number, 
+    NorthAmerica: number, 
+    SouthAmerica: number
+}
+
+export enum Climate {
     Coldest=1, Cold=2, Medium=3, Warm=4, Warmest=5, Hot=6, Hotest=7
 }
 
-enum continents {
+export enum continents {
     Europe, Asia, Australia, Africa, NorthAmerica, SouthAmerica
 }
 
@@ -16,6 +49,7 @@ interface IObjectKeys {
   }
 
   export interface TCountry {
+      id: number,
     name: string,
     continent: continents,
     climate: Climate,
@@ -30,8 +64,9 @@ interface IObjectKeys {
 
 export const countries: TCountry[] = [
 {
+    id: 1,
     name: 'Norway',
-    continent: continents.Europe,
+    continent: 1,
     climate: Climate.Coldest,
     price: 4000,
     salary: 4500,
@@ -42,8 +77,9 @@ export const countries: TCountry[] = [
     safety: 2 
 },
 {
+    id: 1,
     name: 'Kosta Rika',
-    continent: continents.SouthAmerica,
+    continent: 6,
     climate: Climate.Warmest,
     price: 2000,
     salary: 1000,
@@ -54,8 +90,9 @@ export const countries: TCountry[] = [
     safety: 2 
 },
 {
+    id: 1,
     name: 'Panama',
-    continent: continents.SouthAmerica,
+    continent: 6,
     climate: Climate.Warmest,
     price: 2100,
     salary: 700,
@@ -66,8 +103,9 @@ export const countries: TCountry[] = [
     safety: 4 
 },
 {
+    id: 1,
     name: 'Dominicana',
-    continent: continents.SouthAmerica,
+    continent: 6,
     climate: Climate.Warmest,
     price: 700,
     salary: 200,
@@ -78,8 +116,9 @@ export const countries: TCountry[] = [
     safety: 7 
 },
 {
+    id: 1,
     name: 'Sweden',
-    continent: continents.Europe,
+    continent: 1,
     climate: Climate.Cold,
     price: 4700,
     salary: 5000,
@@ -90,8 +129,9 @@ export const countries: TCountry[] = [
     safety: 2 
 },
 {
+    id: 1,
     name: 'France',
-    continent: continents.Europe,
+    continent: 1,
     climate: Climate.Medium,
     price: 3000,
     salary: 2500,
@@ -102,8 +142,9 @@ export const countries: TCountry[] = [
     safety: 3 
 },
 {
+    id: 1,
     name: 'Portugal',
-    continent: continents.Europe,
+    continent: 1,
     climate: Climate.Warm,
     price: 2000,
     salary: 1500,
@@ -114,8 +155,9 @@ export const countries: TCountry[] = [
     safety: 3 
 },
 {
+    id: 1,
     name: 'Sri Lanka',
-    continent: continents.Asia,
+    continent: 2,
     climate: Climate.Warmest,
     price: 1700,
     salary: 500,
@@ -126,8 +168,9 @@ export const countries: TCountry[] = [
     safety: 3 
 },
 {
+    id: 1,
     name: 'China',
-    continent: continents.Asia,
+    continent: 2,
     climate: Climate.Warm,
     price: 2700,
     salary: 2500,
@@ -138,8 +181,9 @@ export const countries: TCountry[] = [
     safety: 3 
 },
 {
+    id: 1,
     name: 'Japan',
-    continent: continents.Asia,
+    continent: 2,
     climate: Climate.Medium,
     price: 5700,
     salary: 5500,
@@ -150,8 +194,9 @@ export const countries: TCountry[] = [
     safety: 2 
 },
 {
+    id: 1,
     name: 'Ukraine',
-    continent: continents.Europe,
+    continent: 1,
     climate: Climate.Medium,
     price: 700,
     salary: 500,

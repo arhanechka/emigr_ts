@@ -1,7 +1,10 @@
 
-const source = require('./tr_config/1')
+const source = require('./tr_config/2')
 const allMatrixes = require('./rMatrixes')
-//3 parameters: selected countires, characteristics for relocation, weights
+
+
+
+// 3 parameters: selected countires, characteristics for relocation, weights
 let countries = source.countries.countries
 let character = source.characteristics
 let weights = source.weights
@@ -10,6 +13,7 @@ let measure = source.criteriaMeaning;
 //array for characteristics names
 let characteristics = [];
 for (key in character) {
+    console.log(key)
     characteristics.push(key)
   } 
 
@@ -71,16 +75,21 @@ let Q3 = ()=>{
     let q1 = allMatrixes.getAllRMatrixes(); 
     
     let resultMatrix =zeroMatrix();
+   
+
 
     for (let i = 0; i < q1.length; i ++){
         //take the matrix from all R matrixes
         let tempMatrix = q1[i];
+        console.log("tempMatrix")
 
+        console.log(tempMatrix)
         for (let j = 0; j < tempMatrix.length; j++){
             for (let k = 0; k < tempMatrix.length; k++){
      
 //if the value is 1 - add the weight to it
             if (tempMatrix[j][k] == 1){
+                console.log(weights[characteristics[i]])
                 resultMatrix[j][k] += weights[characteristics[i]];
                 // resultMatrix[j][k] = Math.round((resultMatrix[j][k] + Number.EPSILON) * 100) / 100
 
@@ -88,6 +97,9 @@ let Q3 = ()=>{
         }
     }
 }
+console.log("Q3 inside")
+
+console.log(resultMatrix)
 return resultMatrix
 }
 
@@ -104,6 +116,8 @@ let roundMatrixValues = (matrix) => {
 //result of second task. Looks to Q3 and subtract from row/column - column/row.  if result <0 then 0
 let Q4 = () => {
     let q3 = roundMatrixValues(Q3());
+    // let q3 = Q3();
+
     console.log("Q3")  
 
     console.log(q3)

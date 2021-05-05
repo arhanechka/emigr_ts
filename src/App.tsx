@@ -1,19 +1,23 @@
-import './App.css';
-import Header from './components/Header'
-import 'materialize-css/dist/css/materialize.min.css';
-import React, {useState, createContext} from 'react'
-import {HashRouter as Router, Route, Switch} from 'react-router-dom'
-import Landing from './components/Landing'
-import Conditions from './components/Conditions'
-import DataCenter from './components/DataCenter'
-import SocialOrClimate from './components/SocialOrClimate'
-import Slider from './components/userGameParameters/Typography'
-import {preconditions, conditions} from './data/data'
+import "./App.css";
+import Header from "./components/Header";
+import "materialize-css/dist/css/materialize.min.css";
+import { createContext } from "react";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import Landing from "./components/Landing";
+import UserWightsBoard from "./components/userGameParameters/UserWeightsBoard";
+import { preconditions, conditions } from "./data/data";
+import CountriesChoice from "./components/CountriesChoice";
+import ContinentsChoice from "./components/ContinentsChoice";
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+import Result from './components/Result'
 
 export interface IConditionType {
   name: string;
   value: string;
 }
+
+const queryClient = new QueryClient()
 
 const setDefConditions = (): IConditionType[] => {
   const defData: IConditionType[] = [];
@@ -28,25 +32,27 @@ const setDefConditions = (): IConditionType[] => {
 
 export const defaultConditions = createContext<IConditionType[]>(
   setDefConditions()
-); 
+);
 
 function App() {
- return (
-    <div className='container'>
-    <Router>
+  return (
+    <QueryClientProvider client={queryClient}>
+    <div className="container">
+      <Router>
         <div>
-       <Header name={"ANN"}/>
-       <Switch>
-       <Route exact path = '/' component={Landing}/>
-       <Route exact path="/prec" component={() => <Conditions {...preconditions} />} /> 
-       <Route exact path="/cond" component={() => <Conditions {...conditions} />} /> 
-       <Route exact path="/datacenter" component={DataCenter} /> 
-       <Route exact path="/scenario" component={SocialOrClimate} />                       
-       <Route exact path="/slider" component={Slider} />         </Switch>
-       </div>
-       </Router>
-
+          <Header name={"ANN"} />
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/cont" component={ContinentsChoice} />
+            <Route exact path="/countries" component={CountriesChoice} />
+            <Route exact path="/result" component={Result} />
+            <Route exact path="/slider" component={UserWightsBoard} />{" "}
+          </Switch>
+        </div>
+      </Router>
     </div>
+    <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 

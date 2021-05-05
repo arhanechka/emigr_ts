@@ -1,4 +1,4 @@
-const source = require('./tr_config/1')
+const source = require('./tr_config/2')
 
 //3 parameters: selected countires, characteristics for relocation, weights
 let countries = source.countries.countries

@@ -1,10 +1,10 @@
-import React, { useEffect, useState, createContext } from "react";
+import { useEffect, useState, createContext, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./styles/index.scss";
 import Board from "./Board";
 import RegionChoiceCard from "./RegionChoiceCard";
-import CountriesChoice from "./CountriesChoice";
 import { IUserContext } from "../data/UserContext";
+import CountriesStore from "../store/countriesStore";
 
 export const userContext = createContext<IUserContext>({
   scenario: "",
@@ -15,25 +15,25 @@ export const userContext = createContext<IUserContext>({
 const Landing = () => {
   const [goButton, setGoButton] = useState(true);
   const [regionChoice, setRegionChoice] = useState(true);
-  const [counriesChoice, setCounriesChoice] = useState(false);
+  const CStore = useContext(CountriesStore);
+  const [link, setLink] = useState("");
+  const { getCountiriesByContinentsId } = CStore;
 
   const handleUserProfile = (choice: string): void => {
     if (choice.includes("game")) setRegionChoice(!regionChoice);
-    else alert("This part is still developing. You can try destination game!");
+    else alert("This part is still developing. You can try destination game instead!");
   };
-
-  useEffect(() => {
-    console.log("выбор сделан");
-  }, [goButton]);
 
   const handleChoice = (choice: string): void => {
     console.log(choice);
     if (choice === "yes") {
-      setCounriesChoice(!counriesChoice);
-      setGoButton(true);
-    } else {
-      setGoButton(false);
-    }
+      setLink("/cont");
+    } else setLink("/slider");
+    setGoButton(false)
+  };
+
+  const handleButton = () => {
+    getCountiriesByContinentsId();
   };
 
   return (
@@ -43,15 +43,13 @@ const Landing = () => {
         display={regionChoice ? "none" : "block"}
         handleChoice={handleChoice}
       />
-      <CountriesChoice
-        display={!counriesChoice ? "none" : "block"}
-        handleChoice={handleChoice}
-      />
-      <Link to="/scenario">
+     
+      <Link to={link}>
         <div className="block">
           <button
             className="waves-effect green darken-3 btn"
             disabled={goButton}
+            onClick={handleButton}
           >
             Let's start!
           </button>
