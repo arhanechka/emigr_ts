@@ -1,12 +1,14 @@
 version: "3.8"
 services:
   react:
-    image: emigr_app:1.0
+    build: .
     ports:
       - 3001:3000
+    volumes: 
+      - .:/app
   json_server:
     image: clue/json-server
     ports:
         - 3000:80
     volumes: 
-        - /Users/arkhipchuk/Documents/emigr_ts/emigr_ts/src/store/db.json:/data/db.json
+        - ./src/store/db.json:/data/db.json

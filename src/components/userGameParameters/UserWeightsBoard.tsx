@@ -8,7 +8,7 @@ import { IParameters } from "../../store/storeInterfaces";
 const UserWightsBoard = () => {
   const [parameter, setParameter] = useState<IParameters[]>([]);
   const CStore = useContext(CountriesStore);
-  const {getAllParameters, removeWeight, changeWeight, calculateDesigion, weights, collectData} = CStore
+  const {getAllParameters, removeWeight, changeWeight, calculateDesigion, weights} = CStore
   const setChange = (name: string, value: number | number[]): void => {
     const filteredParams = weights.filter((item) => item.name !== name);
     const newItem = { name, value };
@@ -50,7 +50,7 @@ const UserWightsBoard = () => {
         <div className="block">
           <button
             className="waves-effect green darken-3 btn"
-            onClick={calculateDesigion}
+            // onClick={calculateDesigion}
           >
             Continue
           </button>

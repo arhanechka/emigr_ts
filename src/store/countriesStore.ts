@@ -10,7 +10,7 @@ import {
   Climate,
   iFinalResult,
 } from "./storeInterfaces";
-import { makeDesigion } from "./desigion";
+import { finalData1, makeDesigion } from "./desigion";
 import {
   getAllContinents,
   getParameters,
@@ -60,6 +60,21 @@ class CountriesStore implements ICountriesStore {
     };
   }
 
+  @action cleanContinentFilter = () => {
+    this.filteredContinentIds = [];
+    this.continents = []
+  }
+
+  @action cleanCounryFilter = () => {
+    this.filteredCountries = []
+    this.country = []
+  }
+
+  @action cleanResult = () => {
+    this.finalData = { countries: [], characteristics: [] };
+    this.finalResult = []
+  }
+
   @action addContinent = (continentId: number) => {
     this.filteredContinentIds.push(continentId);
     console.log(this.filteredContinentIds);
@@ -78,7 +93,10 @@ class CountriesStore implements ICountriesStore {
 
   @action getCountiriesByContinentsId = async (): Promise<TCountry[]> => {
     this.country = []
+    console.log("this.country")
+    console.log(this.country)
     this.country = await getCountiriesByContinentsId(this.filteredContinentIds);
+    console.log(this.country)
     return this.country;
   };
 
@@ -126,26 +144,13 @@ class CountriesStore implements ICountriesStore {
     console.log(newSum);
   };
 
-  @action collectData = () => {
-    this.weights.forEach((weight) => {
-      let newObj: IDataCollected = { id: weight.id, name: "", values: [] };
-      this.country.forEach((countryt) => {
-        let value = countryt[weight.country_alias as keyof TCountry];
-        if (typeof value === "number") {
-          console.log(weight.country_alias);
-          newObj.name = weight.country_alias;
-          newObj.values.push(value);
-        }
-      });
-      this.dataCollected.push(newObj);
-    });
-    console.log(this.dataCollected);
-    console.log(this.country);
-    this.recalculateWeights();
-  };
 
-  @action calculateDesigion = () => {
+  @action calculateDesigion = (): iFinalResult[] => {
     this.recalculateWeights();
+    console.log('calculation')
+    console.log(this.country)
+    console.log(this.filteredContinentIds)
+    console.log(this.filteredCountries)
     this.country.forEach((count) => {
       this.finalData.countries.push(count.name);
     });
@@ -169,7 +174,9 @@ class CountriesStore implements ICountriesStore {
       console.log(this.finalData);
       this.finalResult = makeDesigion(this.finalData);
     });
+    return this.finalResult
   };
+  
 }
 
 export default createContext(new CountriesStore());

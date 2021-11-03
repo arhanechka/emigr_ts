@@ -19,7 +19,7 @@ const ContinentsChoice = (props: iProps) => {
   const user= useContext(userContext)
   const CStore = useContext(CountriesStore)
   const [continents,setContinents] = useState<IContinents[]>([])
-  const {getContinents, addContinent} = CStore
+  const {getContinents, addContinent, cleanContinentFilter, cleanCounryFilter} = CStore
   const { isLoading, isError, data, error } = useQuery('continents', getContinents)
   const handleClick = (id: number, parameter: string): void => {
     user.countries?.push(parameter)
@@ -27,7 +27,10 @@ const ContinentsChoice = (props: iProps) => {
     addContinent(id)
   }
   useEffect(()=>{
+    cleanContinentFilter()
+    cleanCounryFilter()
     const getParameters = async () => {
+
       setContinents(await getContinents());
     }
     getParameters()

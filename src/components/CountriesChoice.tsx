@@ -29,11 +29,12 @@ const CountriesChoice = (props: iProps) => {
     addCountry(id);
   };
   useEffect(() => {
+    
     const getCountries = async () => {
       setCountries(await getCountiriesByContinentsId());
     }
     getCountries()
-  })
+  },[])
 
   const getCountriesToMap = () => {
     if (countries != undefined) {
