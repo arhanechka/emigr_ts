@@ -3,6 +3,8 @@ import "./styles/index.scss";
 import { ICardInfo, IHandleClick } from "./Board";
 import {userContext} from './Landing'
 
+//this is test commit
+
 const Card = (props: IHandleClick & ICardInfo): React.ReactNode | any => {
   const user= useContext(userContext)
   const[isChecked, setIsChecked] = useState(false)
